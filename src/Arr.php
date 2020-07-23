@@ -1,13 +1,13 @@
 <?php
 
-namespace Shimoning\ArrayUtilities;
+namespace Shimoning\ArrUtils;
 
 /**
  * 配列の便利関数的なやつ
  *
  * @author Shimon Haga <haga@shimon.biz>
  */
-class ArrayUtilities
+class Arr
 {
     /**
      * 存在してれば OK
@@ -31,7 +31,7 @@ class ArrayUtilities
     public static function some(array $array, callable $callback = null): bool
     {
         if ($callback === null) {
-            $callback = self::exists;
+            $callback = '\Shimoning\ArrUtils\Arr::exists';
         }
 
         foreach ($array as $index => $value) {
@@ -53,7 +53,7 @@ class ArrayUtilities
     public static function every(array $array, callable $callback = null): bool
     {
         if ($callback === null) {
-            $callback = self::exists;
+            $callback = '\Shimoning\ArrUtils\Arr::exists';
         }
 
         foreach ($array as $index => $value) {

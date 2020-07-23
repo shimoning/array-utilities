@@ -17,7 +17,7 @@ Packagist には登録してないので、DLなりコピペして好きなと�
 },
 
 "require": {
-    "shimoning/array-utilities": ">=0.0.1"
+    "shimoning/array-utilities": "^0.0.2"
 },
 ```
 
@@ -30,30 +30,34 @@ composer update shimoning/array-utilities
 ## Usage
 ### some
 javascript にある Array.some() 的なやつ
+
 ```php
 // チェックのための関数
 $biggerThan3 = function($value, $index, $array) {
+    // 3より大きい
     return $value > 3;
 });
 
 $array1 = [1, 2, 3, 4];
-ArrayUtilities::some($array1, $biggerThan3); // -> true
+Arr::some($array1, $biggerThan3); // -> true
 
 $array2 = [1, 2, 1, 2, 1, 0];
-ArrayUtilities::some($array2, $biggerThan3); // -> false
+Arr::some($array2, $biggerThan3); // -> false
 ```
 
 ### every
 javascript にある Array.every() 的なやつ
+
 ```php
 // チェックのための関数
 $smallerThan5 = function($value, $index, $array) {
+    // 5より小さい
     return $value < 5;
 });
 
 $array3 = [1, 2, 3, 4];
-ArrayUtilities::every($array3, $smallerThan5); // -> true
+Arr::every($array3, $smallerThan5); // -> true
 
 $array4 = [4, 5, 6, 3, 2];
-ArrayUtilities::every($array4, $smallerThan5); // -> false
+Arr::every($array4, $smallerThan5); // -> false
 ```
