@@ -12,7 +12,7 @@ class Arr
     /**
      * 存在してれば OK
      *
-     * @param any $value
+     * @param mixed $value
      * @return bool
      */
     public static function exists($value): bool
@@ -62,5 +62,50 @@ class Arr
             }
         }
         return true;
+    }
+
+    /**
+     * JavaScript の Array.find() 的なやつ
+     * 配列のなかで条件を満たした最初のものを取り出す
+     *
+     * @param array $array
+     * @param callable $callback
+     * @return mixed
+     */
+    public static function first(array $array, callable $callback = null)
+    {
+        if ($callback === null) {
+            $callback = '\Shimoning\ArrUtils\Arr::exists';
+        }
+
+        foreach ($array as $index => $value) {
+            if (!$callback($value, $index, $array)) {
+                return $value;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * JavaScript の Array.find() 的なやつの最後を取り出す
+     * 配列のなかで条件を満たした最後のものを取り出す
+     *
+     * @param array $array
+     * @param callable $callback
+     * @return mixed
+     */
+    public static function last(array $array, callable $callback = null)
+    {
+        if ($callback === null) {
+            $callback = '\Shimoning\ArrUtils\Arr::exists';
+        }
+
+        $reversed = array_reverse($array ?? []);
+        foreach ($reversed as $index => $value) {
+            if (!$callback($value, $index, $array)) {
+                return $value;
+            }
+        }
+        return null;
     }
 }
