@@ -1,0 +1,25 @@
+{
+    "name": "shimoning/array-utilities",
+    "description": "Array utilities",
+    "minimum-stability": "stable",
+    "type": "library",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shimon Haga",
+            "email": "haga@shimon.biz",
+            "homepage": "https://shimon.biz"
+        }
+    ],
+    "keywords": [
+        "array",
+        "utilities"
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Shimoning\\ArrayUtilities\\": "src/"
+        }
+    }
+}
