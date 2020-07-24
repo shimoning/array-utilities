@@ -108,4 +108,16 @@ class Arr
         }
         return null;
     }
+
+    /**
+     * array_unique は遅いらしいので
+     *
+     * @param array $array
+     * @param callable $callback
+     * @return mixed
+     */
+    public static function unique(array $array, callable $callback = null)
+    {
+        return array_flip(array_flip($array));
+    }
 }
